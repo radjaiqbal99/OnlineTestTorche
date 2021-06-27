@@ -1,0 +1,7 @@
+{
+    "imports": {
+        "OnlineTestTorche": "http://localhost:5000/main.js",
+        "app1": "http://localhost:8081/js/app.js",
+        "app2": "http://localhost:8082/js/app.js"
+    }
+}

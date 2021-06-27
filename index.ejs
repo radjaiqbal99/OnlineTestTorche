@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Microfrontend</title>
+    
+    <meta name="importmap-type" content="systemjs-importmap">
+    <link rel="shortcut icon" href="#">
+    <script type="systemjs-importmap" src="/importmap.json"></script>
+
+    <% if (process.env.NODE_ENV === 'development') { %>
+    <script type="systemjs-importmap" src="/local-importmap.json"></script>
+    <% } %>
+
+    <script src="https://unpkg.com/import-map-overrides@1.7.2/dist/import-map-overrides.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-exports.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-register.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.min.js"></script>
+  </head>
+
+  <body id="container">
+    <div class="mf-Containers">
+      
+      <div id="appOne-placeholder" class="mf-Container"></div>
+      <div id="appTwo-placeholder" class="mf-Container">
+      </div>
+    </div>
+    <script>
+      System.import('OnlineTestTorche');
+    </script>
+    <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+  </body>
+
+  <style type="text/css">
+    
+    #container{
+      background-color: whitesmoke;
+    }
+    .mf-Containers {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+    .mf-Container {
+    width: 50%;
+    }
+  </style>
+</html>
+
